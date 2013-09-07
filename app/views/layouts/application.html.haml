@@ -29,25 +29,12 @@
     .navbar.navbar-fluid-top
       .navbar-inner
         .container-fluid
-          = link_to "Discuss It", root_path, class:"brand"
+          = link_to "SlashdotAPI", root_path, class:"brand"
           .container-fluid
             %ul.nav
               %li
-                - if can? :manage, @searches
-                  = link_to "[Searches]", searches_path
-              %li
                 = link_to "About", about_path
 
-            %ul.nav.pull-right.signin-navbar
-              - if current_user
-                %li
-                  %strong= current_user.email
-                = link_to "Edit", edit_user_registration_path
-                |
-                = link_to "Log Out", destroy_user_session_path
-              - else
-                %li
-                  = link_to "Log In", user_session_path
     .container-fluid
       %br
       .row-fluid
@@ -55,7 +42,7 @@
           = bootstrap_flash
           = yield
     %footer.span3
-      %p Discuss It - 2013
+      %p Slashdot API - 2013
       %br/
     /
       Javascripts
