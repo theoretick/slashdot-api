@@ -1,33 +1,22 @@
-# Discuss-it
-#### Online link discussion tracker
+# Slashdot-API
+#### Custom built API for Slashdot
 
-## Version 0.4.8
+## Version 0.1
 
-[![Code Climate](https://codeclimate.com/github/theoretick/discuss-it.png)](https://codeclimate.com/github/theoretick/discuss-it)
+API for Archiving and accessing Slashdot Postings, associated metadata,
+and URLS per posting.
 
-Website for locating online discussions about a given article on Reddit, Hacker News, and Slashdot.
-
-Currently hosted at: [discuss-it.herokuapp.com](https://discuss-it.herokuapp.com/)
+Currently hosted at:
+[slashdot-api.herokuapp.com](http:/slashdot-api.herokuapp.com)
 
 ## Features
 
-Version 0.4.0 of Discuss-it takes a URL you think may have interesting
-discussion somewhere on the internet and queries across a number of link
-aggregators with comment systems.
+Version 0.1.0 of Slashdot API contains basic metadata on
+SlashdotPostings.  Author, Title, Permalinks, and most importantly
+Associated Urls.
 
-After submitting your URL we return a page with links. The links we return take you directly to the comments page of the article in question so that you can begin talking about the link you searched for immediately.
-
-Current list of queried sites:
-* __Hacker News__
-* __Reddit__
-* __Slashdot__
-
-The returned search results include the top search result as sorted by
-upvotes/points for each queried site followed by a list of all returned
-results below it ordered by the same criteria.
-
-The API call is source agnostic and converts results from each site
-into similar listing objects that can be manipulated and sorted easily.
+This Slashdot-API was built to serve the Discuss-It app and provide easy
+access and searching of Slashdot Postings.
 
 Slashdot does not have an API so results from Slashdot are aggregated
 by our own API which scrapes the most recent postings and stores them
@@ -37,31 +26,14 @@ as listing objects in a database.
 
 Want to use our app for easy searching?
 
-Discuss It results can be conveniently accessed with a JSON request to our submit
-page:
-```http://discussitapp.com/submit.json?url=http://merbist.com/2011/02/22/concurrency-in-ruby-explained/```
-
-
-## Bookmarklet
-
-For easy searching, add Discuss-It search to your bookmark bar, just
-add a new bookmark and paste in this hunk of JS:
-
-```javascript
-javascript:(function() {
-  function searchDiscussIt() {
-    var url = window.location.href;
-    var discussit = 'http://discuss-it.herokuapp.com/submit?url=';
-    window.location.href = discussit+url;
-}
-searchDiscussIt();
-})();
-```
+Slashdot API results can be conveniently accessed with a request to our slashdot_postings
+page. All results are currently served up as JSON:
+```http://localhost:5000/slashdot_postings/search?url=http://singularityhub.com/2013/07/27/canvas-camera-brush-and-algorithms-enable-robot-artists-beautiful-paintings/```
 
 ## Documentation
 
-* [changelog](http://github.com/theoretick/discuss-it/blob/master/CHANGELOG.md)
-* [wiki](http://github.com/theoretick/discuss-it/wiki)
+* [changelog](http://github.com/theoretick/slashdot-api/blob/master/CHANGELOG.md)
+* [wiki](http://github.com/theoretick/slashdot-api/wiki)
 
 ## Created and maintained by
 
@@ -76,4 +48,4 @@ _Find a bug? Contributions welcome._
 
 ## License
 
-See [LICENSE](http://github.com/theoretick/discuss-it/blob/master/LICENSE) for the full license text.
+See [LICENSE](http://github.com/theoretick/slashdot-api/blob/master/LICENSE) for the full license text.

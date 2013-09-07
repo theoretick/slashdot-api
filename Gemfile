@@ -15,10 +15,6 @@ gem 'newrelic_rpm'
 
 gem 'coveralls', require: false
 
-# for user accounts and authentication
-gem 'devise'
-gem 'cancan'
-
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
@@ -33,7 +29,6 @@ group :development, :test do
   gem 'guard-rspec', :require => false
   gem 'guard-spork', :require => false
   gem 'guard-bundler', :require => false
-  gem 'foreman'
 end
 
 group :test do
