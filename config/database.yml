@@ -18,7 +18,7 @@ development:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: discussit_development
+  database: slashdotapi_development
   pool: 5
   username: db_connect
   password: db_connect
@@ -30,7 +30,7 @@ test:
   adapter: postgresql
   encoding: unicode
   host: localhost
-  database: discussit_test
+  database: slashdotapi_test
   pool: 5
   username: db_connect
   password: db_connect
@@ -38,7 +38,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: discussit_production
+  database: slashdotapi_production
   pool: 5
   username: db_connect
   password: db_connect
