@@ -1,9 +1,9 @@
 # Slashdot-API
-#### Custom built API for Slashdot
+#### Unofficial API for Slashdot.com
 
 ## Version 0.1
 
-API for Archiving and accessing Slashdot Postings, associated metadata,
+API for archiving and accessing Slashdot Postings, associated metadata,
 and URLS per posting.
 
 Currently hosted at:
@@ -12,23 +12,30 @@ Currently hosted at:
 ## Features
 
 Version 0.1.0 of Slashdot API contains basic metadata on
-SlashdotPostings.  Author, Title, Permalinks, and most importantly
-Associated Urls.
+SlashdotPostings and (most importantly) their associated URLs:
+ * Author
+ * Title
+ * Permalinks
+ * Post-body URLs
+
+## Background
 
 This Slashdot-API was built to serve the Discuss-It app and provide easy
 access and searching of Slashdot Postings.
 
-Slashdot does not have an API so results from Slashdot are aggregated
+Slashdot has no official API so results from Slashdot are aggregated
 by our own API which scrapes the most recent postings and stores them
-as listing objects in a database.
+as listings in our PG database.
 
 ## API
 
-Want to use our app for easy searching?
+**Want to use our app for easy searching?**
 
 Slashdot API results can be conveniently accessed with a request to our slashdot_postings
 page. All results are currently served up as JSON:
-```http://localhost:5000/slashdot_postings/search?url=http://singularityhub.com/2013/07/27/canvas-camera-brush-and-algorithms-enable-robot-artists-beautiful-paintings/```
+```
+http://localhost:5000/slashdot_postings/search?url=http://singularityhub.com/2013/07/27/canvas-camera-brush-and-algorithms-enable-robot-artists-beautiful-paintings/
+```
 
 ## Documentation
 
@@ -48,4 +55,4 @@ _Find a bug? Contributions welcome._
 
 ## License
 
-See [LICENSE](http://github.com/theoretick/slashdot-api/blob/master/LICENSE) for the full license text.
+See [LICENSE](http://github.com/theoretick/slashdot-api/blob/master/LICENSE) for the full Apache license text.
