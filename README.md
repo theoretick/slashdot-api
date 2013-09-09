@@ -28,7 +28,9 @@ Want to use our app for easy searching?
 
 Slashdot API results can be conveniently accessed with a request to our slashdot_postings
 page. All results are currently served up as JSON:
-```http://localhost:5000/slashdot_postings/search?url=http://singularityhub.com/2013/07/27/canvas-camera-brush-and-algorithms-enable-robot-artists-beautiful-paintings/```
+```
+http://localhost:5000/slashdot_postings/search?url=http://singularityhub.com/2013/07/27/canvas-camera-brush-and-algorithms-enable-robot-artists-beautiful-paintings/
+```
 
 ## Documentation
 
