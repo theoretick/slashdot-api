@@ -5,7 +5,7 @@
 
 /* index page */
 
-/* no decoration on brand link 'discuss it' */
+/* no decoration on brand link 'slashdot-api' */
 a.brand {
   text-decoration: none;
 }
@@ -15,21 +15,6 @@ a.brand {
   margin-top: 4%;
 }
 
-/* centers and sizes text search box on index */
-#search-field {
-  margin-top: 1%;
-  width: 70%;
-}
-
 footer {
   background: none;
-}
-
-/* submit page */
-
-/*  helps format submit page so urls wrap and dont get ugly */
-.url-friendly {
-  word-break: break-all;
-  word-break: break-word; /* this is for IE or something weird */
-  hyphens: auto;
 }
