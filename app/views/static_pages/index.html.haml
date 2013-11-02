@@ -1,13 +1,15 @@
 
 .hero-unit
-  %h1 Slashdot API
-  %p API for scrapping, storage, and access of Slashdot.com
+  %h1 The (Unofficial) Slashdot API
+  %p API for scrapping, storing, and accessing postings on Slashdot.com
 
   %hr
 
   .row-fluid
     %p
-      = link_to "Example JSON", "http://localhost:5000/slashdot_postings/search?url=http://singularityhub.com/2013/07/27/canvas-camera-brush-and-algorithms-enable-robot-artists-beautiful-paintings/"
+      = link_to "Example JSON - Singularity Hub article", "/slashdot_postings/search?url=http://singularityhub.com/2013/07/27/canvas-camera-brush-and-algorithms-enable-robot-artists-beautiful-paintings/"
+    %p
+      = link_to "Example JSON - Latest Posting by URL", @latest_url
 
     %h6
       Documentation coming soon...
