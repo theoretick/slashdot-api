@@ -7,7 +7,7 @@ namespace :slashdot do
   task :strip_slashes_from_all_urls => :environment do
 
     def test_mode?
-      true
+      false
     end
 
     puts "stripping slashdot_postings..."
