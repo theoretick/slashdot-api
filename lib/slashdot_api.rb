@@ -39,7 +39,11 @@ class SlashdotApi
     # Iterate through each posting on archive page to create SlashdotPosting instance
     parent_body_anchors.each_with_index do |anchor, index|
       posting_urls = []
-      permalink = 'http:' + anchor
+      old_permalink = 'http:' + anchor
+
+      # check and ensure no trailing slashes
+      permalink = old_permalink.end_with?('/') ? old_permalink.chop : old_permalink
+
 
       # find/init SlashdotPosting.new instance from each posting_url
       s = SlashdotPosting.find_by(permalink: permalink)
@@ -73,11 +77,13 @@ class SlashdotApi
 
           # find/init Url.new instance from each url in posting's body
           # and associate with SlashdotPosting instance
-          posting_urls.each do |url|
+          posting_urls.each do |raw_url|
+            # ensure no trailing slash
+            url = raw_url.end_with?('/') ? raw_url.chop : raw_url
+
             u = Url.find_or_initialize_by(target_url: url)
             u.slashdot_postings << SlashdotPosting.find_or_initialize_by(permalink: s.permalink)
-            puts ">  Saving associated URL: '#{url}'."
-            u.save
+            puts ">  Saved associated URL: '#{url}'." if u.save
           end
         end
       end
