@@ -24,3 +24,6 @@ Guardfile
 
 # Ignore simplecov test coverage results
 /coverage/*
+
+# Ignore SQL dump files
+/*.dump
