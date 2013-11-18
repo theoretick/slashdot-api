@@ -88,7 +88,7 @@ class SlashdotApi
   #
   # returns a Nokogiri::HTML::Object from HTML object
   def parse(posting)
-    @document ||= Nokogiri::HTML(posting)
+    @document = Nokogiri::HTML(posting.body)
   end
 
   def title
