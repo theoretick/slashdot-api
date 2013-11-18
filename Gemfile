@@ -9,11 +9,8 @@ gem 'faraday'
 gem 'typhoeus'
 
 gem 'nokogiri'
-gem 'hashie'
 
 gem 'newrelic_rpm'
-
-gem 'coveralls', require: false
 
 group :development do
   gem 'better_errors'
@@ -38,7 +35,6 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'meta_request', :require => false
-  gem 'simplecov', :require => false
 
   # for guard-test awesomeness
   gem 'rb-fsevent', :require => false

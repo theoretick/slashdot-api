@@ -1,10 +1,3 @@
-require 'simplecov'
-require 'coveralls'
-
-# code coverage stuff
-SimpleCov.start 'rails'
-Coveralls.wear! 'rails'
-
 require 'rubygems'
 
 require 'spork'
@@ -15,11 +8,6 @@ Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
-
-  unless ENV['DRB']
-    require 'simplecov'
-    SimpleCov.start 'rails'
-  end
 
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
@@ -73,10 +61,5 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-  if ENV['DRB']
-    require 'simplecov'
-    SimpleCov.start 'rails'
-  end
-
 end
 
