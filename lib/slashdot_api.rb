@@ -20,7 +20,7 @@ class SlashdotApi
   def get_postings(timeframe='w')
 
     first_anchor = 21 # first 21 anchors are nav links
-    archive_url = 'http://slashdot.org/archive.pl?op=bytime&keyword=&year=&page=2'
+    archive_url = 'http://slashdot.org/archive.pl?op=bytime&keyword=&week'
 
     # default: all archive_urls on page (skip last where href='page 2')
     request_count ||= -2
