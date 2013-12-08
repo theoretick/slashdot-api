@@ -6,10 +6,11 @@
   %hr
 
   .row-fluid
-    %p
-      = link_to "Example JSON - Singularity Hub article", "/slashdot_postings/search?url=http://singularityhub.com/2013/07/27/canvas-camera-brush-and-algorithms-enable-robot-artists-beautiful-paintings/"
-    %p
-      = link_to "Example JSON - Latest Posting by URL", @latest_url
+    %h4
+      = link_to "Latest SlashdotPosting archived by URL:", @latest_url
+
+      %pre
+        = @latest_json
 
     %h6
       Documentation coming soon...
