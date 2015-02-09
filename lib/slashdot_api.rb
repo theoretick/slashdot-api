@@ -63,17 +63,14 @@ class SlashdotApi
 
         # dont bother creating a listing if no links; i.e. "Ask Slashdot" posts
         unless posting_urls.empty?
-
-          s = SlashdotPosting.new
-
-          s.site          = "slashdot"
-          s.permalink     = permalink
-          s.title         = title
-          s.author        = author
-          s.comment_count = comment_count
-          s.post_date     = post_date
-
-          s.save
+          posting = SlashdotPosting.create!(
+            site:          "slashdot",
+            permalink:     permalink,
+            title:         title,
+            author:        author,
+            comment_count: comment_count,
+            post_date:     post_date
+          )
 
           # find/init Url.new instance from each url in posting's body
           # and associate with SlashdotPosting instance
@@ -81,9 +78,11 @@ class SlashdotApi
             # ensure no trailing slash
             url = raw_url.end_with?('/') ? raw_url.chop : raw_url
 
-            u = Url.find_or_initialize_by(target_url: url)
-            u.slashdot_postings << SlashdotPosting.find_or_initialize_by(permalink: s.permalink)
-            puts ">  Saved associated URL: '#{url}'." if u.save
+            unless url.starts_with?('/~') # internal slashdot user urls
+              u = Url.find_or_initialize_by(target_url: url)
+              u.slashdot_postings << SlashdotPosting.find_or_initialize_by(permalink: posting.permalink)
+              puts ">  Saved URL: '#{url}'." if u.save
+            end
           end
         end
       end
@@ -98,22 +97,19 @@ class SlashdotApi
   end
 
   def title
-    return @document.css('title').text
+    @document.css('title').text
   end
 
   def author
-    return @document.css('header div.details a').text
+    @document.css('header div.details a').text
   end
 
   def comment_count
-    return @document.css('span.totalcommentcnt').first.text
+    @document.css('span.totalcommentcnt').first.text
   end
 
   def post_date
     date_raw = @document.css('header div.details time').text
-
-    return DateTime.parse(date_raw).to_s
+    DateTime.parse(date_raw).to_s
   end
-
-
 end
