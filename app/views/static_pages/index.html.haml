@@ -7,11 +7,14 @@
 
   .row-fluid
     %h4
-      = link_to "Latest SlashdotPosting archived by URL:", @latest_url
-
       %pre
         = @latest_json
 
+      %ul
+        - @latest_10.each do |url|
+          %li
+            %small
+              = link_to url.target_url, url.slashdot_postings.last.permalink
     %h6
       Documentation coming soon...
 
